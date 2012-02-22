@@ -1,0 +1,242 @@
+\documentclass[graybox]{svmult}
+
+\usepackage{mathptmx}       % selects Times Roman as basic font
+\usepackage{helvet}         % selects Helvetica as sans-serif font
+\usepackage{courier}        % selects Courier as typewriter font
+\usepackage{makeidx}         % allows index generation
+\usepackage{graphicx}        % standard LaTeX graphics tool when including figure files
+\usepackage{multicol}        % used for the two-column index
+\usepackage[bottom]{footmisc}% places footnotes at page bottom
+
+\usepackage{verbatim}  % for begin/end{comment}  >>> remove these before submitting to Springer
+
+\makeindex             % used for the subject index
+                       % please use the style svind.ist with
+                       % your makeindex program
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+
+\title*{Data-based Computational Approaches to Forecasting Political Violence}
+\titlerunning{Forecasting Political Violence} 
+\author{Philip A. Schrodt, James Yonamine and Benjamin Bagozzi}
+\authorrunning{Schrodt, Yonamine and Bagozzi} 
+\institute{Philip A. Schrodt \at Political Science, Pennsylvania State University, University Park, PA 16801, USA. \email{schrodt@psu.edu}
+\and James Yonamine \at Political Science, Pennsylvania State University, University Park, PA 16801, USA. \email{jxy190@psu.edu}
+\and Benjamin Bagozzi \at Political Science, Pennsylvania State University, University Park, PA 16801, USA. \email{beb196@psu.edu} }
+
+
+\maketitle
+
+%\abstract*{Each chapter should be preceded by an abstract (10--15 lines long) that summarizes the content. The abstract will appear \textit{online} at \url{www.SpringerLink.com} and be available with unrestricted access. This allows unregistered users to read the abstract as a teaser for the complete chapter. As a general rule the abstracts will not appear in the printed version of your book unless it is the style of your particular book or that of the series to which your book belongs.
+%Please use the 'starred' version of the new Springer \texttt{abstract} command for typesetting the text of the online abstracts (cf. source file of this chapter template \texttt{abstract}) and include them with the source files of your manuscript. Use the plain \texttt{abstract} command if the abstract is also to appear in the printed version of the book.}
+
+\abstract{{\color{blue}{[which will be shortened]}}This chapter provides a general overview of inductive statistical and computational methodologies used in the analysis and forecasting of political violence, and some of the challenges specific to the issue of analyzing terrorism.  The chapter is intended for the non-specialist in the field of technical political forecasting, but assumes a general familiarity with data and computational methods. Our purpose is not to exhaustively explore any of these methods---each technique would typically require tens or hundreds of pages---but instead to focus on the similarities and differences between the approaches in terms of their assumptions about what aspects of the problem can be extracted from data, and what types of predictions can be made.  We first provide a general overview of some of the types of data commonly used in technical forecasting models, then consider the two broad categories of model: statistical and algorithmic. {\color{blue}{[next sentences will be updated when manuscript is complete]}}Within statistical modeling, we assess the strengths and weaknesses of conventional time series approaches, event-history models, vector-autoregression, and zero-inflated models. Within computational modeling, we consider the general issue of computational pattern recognition and data mining, and then look more specifically at the issue of using event sequences for forecasting.}
+
+\section{Introduction and Overview}
+\label{sec:intro}
+
+The challenge of terrorism dates back centuries if not millennia. Until recently, the basic approaches to analyzing terrorism---a combination of historical analogy and monitoring the contemporary words and deeds of potential perpetrators---have changed little: the Roman authorities warily observing the Zealots in 1st-century Jerusalem could have easily changed places with the Roman authorities combatting the Red Brigades in 20th century Italy.
+
+This stasis has changed with the exponential expansion of information processing capability made possible first by the development of the digital computer, followed by the phenomenal growth in the quantity and availability of machine-readable information made possible by the World Wide Web. Information that once circulated furtively on hand-copied sheets of paper (or papyrus) is now instantly available---for good or ill---on web pages which can be accessed for essentially no cost from anywhere in the world. This expansion of the scope and availability of information in all likelihood will change the dynamics of the contest between organizations seeking to engage in terrorism and those seeking to prevent it. It is almost certainly too early to tell which group will benefit more---many of the new media are less than a decade old---but the techniques of processing and evaluating information will most certainly change.
+
+This chapter provides a general overview of inductive statistical and computational methodologies used in the analysis and forecasting of political violence, and some of the challenges specific to the issue of analyzing terrorism.   The chapter is intended for the non-specialist, but assumes a general familiarity with data and computational methods. Our purpose is not to exhaustively explore any of these methods---each technique would typically require tens or hundreds of pages---but instead to provide a sufficient introduction to the basic concepts and vocabulary that the reader can explore further on his or her own. This is a map, not a mine. Throughout our discussion, we focus on the similarities and differences between the approaches---a number of which are illustrated or discussed in far greater detail in later chapters in this volume---in terms of their assumptions about what aspects of the problem can be extracted from data, and what types of predictions can be made.
+
+The psychologist and philosopher William James, in his Lowell Institute lectures in 1906, subsequently published under the title \textit{Pragmatism: A New Name for Some Old Ways of Thinking} notes that the fundamental split in philosophy, dating to the very origins of the field, is between ``rationalists'' who seek to find an intellectual structure that will reveal a proper order in the world, and ``empiricists,'' who take the disorder of the observed world as a given and simply try to make as much sense of it as they can. More than a century later, we find exactly the same split in formal approaches in the social sciences: the rationalist position found in deductive approaches such as game theory, expected utility models, systems dynamics and agent-based models, which seek to explain behavior from a set of  \textit{a priori} first-principles and their consequent emergent properties, and the empiricist approach found in inductive statistical and computational data-mining approaches which extracts structured information for large sets of observed data. Both approaches are well-represented in this volume {\color{blue}{[we will insert citations when the table of contents has been finalized]}} but this review will focus only on the empirical approaches.
+
+Throughout the chapter, we will generally be looking at models which focus on forecasting and understanding political violence in general, not just approaches to terrorism per se. This is done for two reasons. First, due to a combination of data limitations and a paucity of interest in the research community prior to the 2000s, the number of studies was quite limited and focused on a relatively small number of approaches. In contrast, the large-scale research efforts were generally focused on various forms of political violence, not just terrorism. Second, most of the methods used to study the general problem of political violence are at least potentially applicable to the study of terrorism---in fact many are generally applicable to almost any behavior for which large amounts of data are available---albeit we will frequently caveat these possibilities with concerns about some of the atypical aspects of terrorism, and we will be focusing on methods appropriate to rare-events analysis rather than high-frequency behaviors. Finally, in many instances, there is a close relationship between situations of general political violence such as civil war and state failure, and conditions which encourage the formation and maintenance of terrorist groups, so political instability is of considerable interest on its own. 
+
+We will first provide a general overview of some of the types of data commonly used in technical forecasting models, then consider the two broad categories of model: statistical and algorithmic. {\color{blue}{[next sentences will be updated when manuscript is complete]}}Within statistical modeling, we assess the strengths and weaknesses of conventional time series approaches, event-history models, vector-autoregression, and zero-inflated models. Within computational modeling, we consider the general issue of computational pattern recognition and data mining, and then look more specifically at the issue of using event sequences for forecasting. 
+
+\subsection{The Weaknesses of Human Political Forecasting}
+\label{subsec:human}
+
+Mostly Tetlock, though there is also some interesting material in Kahnemann's recent best-seller  
+
+\subsection{The Development of Technical Political Forecasting}
+\label{subsec:TPF}
+
+Pretty much behavioral revolution, COW, early DARPA efforts, PITF, ICEWS. I've got an assortment of citations. Also we will say nice things about the Web.
+
+% Always give a unique label
+% and use \ref{<label>} for cross-references
+% and \cite{<label>} for bibliographic references
+% use \sectionmark{}
+% to alter or adjust the section heading in the running head
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Data Sources}
+\label{sec:data}
+
+In this discussion, we use the following terminology to distinguish between the types of information being coded. An ``event'' is a discrete incident that can be located at a single time (usually precise to a day) and set of actors, usually a dyad of a source and target. This is distinct from ``structural data'' such as GDP or Polity scores (\texttt{http://www.systemicpeace.org/polity/polity4.htm}). ``Episodic'' data are those which code the characteristics of an extended set of events such as a war or a crisis: the Correlates of War project (COW; \texttt{http://www.correlatesofwar.org/}) is the archetype; International Crisis Behavior (\textit{http://www.cidcm.umd.edu/icb/}) would be a more recent example. ``Composite'' events are those which occur in a relatively short period of time and limited space---for example a terrorist attack---and multiple characteristics of the incident are coded. %insert examples
+Finally, ``atomic'' %is this a good word?
+events are basic units of political interaction---date, source, target, event---found in classic event data sets such as WEIS and COPDAB, and in contemporary coding schemes such as IDEA, CAMEO and SPEED. As with any typology, not all of the data sets fit clearly into a single category, but most will.
+
+\subsection{Structural Data}
+\label{subsec:structural}
+
+\subsection{Event Data}
+\label{subsec:eventdata}
+
+While the projects coding composite events still use human coding, for real-time coding of atomic events, there is simply no alternative to automated methods. Sustained human coding projects, once one takes in the issues of training, retraining, replacement, cross-coding, re-coding due to effects of coding drift and/or slacker-coders and so forth, usually ends up coding about six events per hour. Individual coders, particularly working for short periods of time, and definitely if they are a principal investigator trying to assess coding speed, can reliably code much faster than this. But for the \textit{overall} labor requirements---that is, the total time invested in the enterprise divided by the resulting useable events---the 6 events per hour is a pretty good rule of thumb and---like the labor requirements of a string quartet---has changed little over time. 
+
+The challenge will be extending the success of automated coding to projects which are coding composite event. This may be possible by further development of specific ``data field extraction'' methods, for example locating reports of the number of individuals killed or the amount of aid promised. A very sizeable NLP literature exists on this [CiteTBA] and several such methods are used in SPEED. %cite something; 
+One would then define composite events such as ``civil war'' by using patterns of the atomic events. %cite NKSS
+This would also make the differences between definitions used by various project unambiguous (or at least comparable) and  allow the composite events to be easily constructed out of existing data sets rather than starting every new project from the beginning. MID, in moving from the original episodic definitions to coding composite incidents as well, would be an example of this approach, albeit with human coding.
+
+\subsubsection{Sample Subsubsection for Testing the \texttt{BibTeX} Citations}
+\label{subsubsec:bibtex}
+
+This can be ignored for the time being and is still generating somewhat---or at one point, exceedingly---ugly citations.
+
+Political event data have long been used in the quantitative study of international politics, dating back to the early efforts of Edward Azar's COPDAB ~\cite{Azar80} and Charles McClelland's WEIS ~\cite{McClelland76} as well as a variety of more specialized efforts such as Leng's BCOW \cite{Leng87}. By the late 1980s, the NSF-funded \textit{Data Development in International Relations} project ~\cite{MMZ93} had identified event data as the second most common form of data---behind the various Correlates of War data sets---used in quantitative studies. The 1990s saw the development of two practical automated event data coding systems, the NSF-funded KEDS ~\cite{GSFW94, SchrodtGerner94} and the proprietary VRA-Reader (\url{http://vranet.com}; ~\cite{KingLowe04} and in the 2000s, the development of two new political event coding ontologies---CAMEO ~\cite{GSY09} and IDEA ~\cite{BBOJT03}---designed for implementation in automated coding systems.
+
+
+\subsection{Text, Social Media and Other Unstructured Data Sources}
+\label{subsec:socialmedia}
+
+\subsection{The Challenges of Data Aggregation}
+\label{subsec:aggregation}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Statistical Approaches}
+\label{sec:logit}
+
+\subsection{Cross-sectional Regression and Logit}
+\label{sec:logit}
+% equations below snagged from Wikipedia...
+
+Since this is so widely used in PITF and much of the other published literature
+
+Ordinary least squares regression uses equations of the form
+
+\begin{equation}
+ y_i = \beta_1 x_{i1} + \cdots + \beta_p x_{ip} + \varepsilon_i
+ = x'_i\beta + \varepsilon_i,
+ \qquad i = 1, \ldots, n,
+\end{equation}
+
+Logistic regression, in contrast, is used to predict a values between zero and one---typically interpreted as a probability---and does this by using an equation of the form
+
+\begin{equation}
+f(z) = \frac{e^{z}}{e^{z} + 1} \! = \frac{1}{1 + e^{-z}} \! \\
+\end{equation}
+
+where the variable ``z'' is usually defined as
+
+\begin{equation}
+z=\beta_0 + \beta_1x_1 + \beta_2x_2 + \beta_3x_3 + \cdots + \beta_kx_k,
+\end{equation}
+
+\subsection{Classical Time Series}
+\label{sec:timeseries}
+
+Box-Jenkins, etc. Fairly short but introduce the issue of autoregression vs autocorrelated error
+
+\subsection{Event History and Hazard Models}
+\label{subsec:eventhistl}
+
+\subsection{Vector Autoregression Models}
+\label{subsec:VAR}
+
+This is probably worth a mention due to Sandler, Brandt. We can also mention the Bayesian variant
+
+\subsection{Zero-Inflated Models}
+\label{subsec:ZI}
+
+and more generally discuss some of the rare events models. Hmmm, should we also do Heckman models here?
+
+\subsection{Geo-spatial Models}
+\label{subsec:ZI}
+
+A brief introduction....
+
+\subsection{What else am I missing?}
+\label{subsec:missing}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Algorithmic Approaches}
+\label{sec:algor}
+
+\subsection{Supervised Cross-sectional Classification Methods}
+\label{sec:logit}
+
+Neural networks, SVM, linear discriminant analysis, the usual suspects
+
+
+\subsection{Unsupervised Clustering Methods}
+\label{sec:logit}
+
+Again, the usual suspects, and also note that some of these overlap with the statistical approaches. Put in a word for some of the topic-clustering methods Burt is using?
+
+\subsection{Social network analysis model}
+\label{sec:timeseries}
+
+again, really overlaps with statistical at times.
+
+\subsection{Case-based reasoning}
+\label{sec:timeseries}
+
+Hmmm, or is this really a null set at the moment, beyond essentially toy problems like CASCON
+
+\subsection{Sequence Comparison}
+\label{subsec:seqcompare}
+
+Snag the D'Orozio-Yonamine lit review?
+
+\subsection{Sequence Development: hidden Markov models}
+\label{subsec:HMM}
+
+{\color{blue}{[this will be considerably shortened to adjust for the content of the Bond HMM paper]}}
+
+Hidden Markov models (HMM) are a recently developed technique that is now widely used inthe classification of noisy sequences into a set of discrete categories (or, equivalently, computingthe probability that a given sequence was generated by a known model), most commonly in speech recognition and comparing protein sequences.
+
+An HMM is a variation on the well-known Markov chain model, one of the most widelystudied stochastic models of discrete events (Bartholomew 1975). Like a conventional Markovchain, a HMM consists of a set of discrete states and a matrix $A = a_{ij}$ of transitionprobabilities for going between those states. In addition, however, every state has a vector ofobserved symbol probabilities, $B = {b_j(k)}$ that corresponds to the probability that the system
+will produce a symbol of type k when it is in state j. The states of the HMM cannot be directlyobserved and can only be inferred from the observed symbols, hence the adjective ``hidden.''
+
+In empirical applications, the transition matrix and symbol probabilities of an HMM areestimated using an iterative maximum likelihood technique called the Baum-Welch algorithm.This procedure takes a set of observed sequences (for example the word "seven" as pronouncedby twenty different speakers) and findsvalues for the matrices A and B that locally maximize the probability of observing those
+sequences. The Baum-Welch algorithm is a nonlinear numerical technique and Rabiner(1989:265) notes ``the algorithm leads to a local maxima only and, in most problems of interest,the optimization surface is very complex and has many local maxima.''
+Once a set of models has been estimated, it can be used to classify an unknown sequence bycomputing the maximum probability that each of the models generated the observed sequence.This is done using an algorithm that requires on the order of $N^{2T}$ calculations, where $N$ is thenumber of states in the model and $T$ is the length of the sequence. Once the probability of thesequence matching each of the models is known, the model with the highest probability is chosenas that which best represents the sequence. Matching a sequence of symbols such as those foundin daily data on a six-month crisis coded with using the 22-category World Events InteractionSurvey scheme (WEIS; ~\cite{McClelland76}), generates probabilities on the order of $10^{T+1}$---whichis extremely small, even if the sequence was in fact generated by one of the models---but the onlyimportant comparison is the relative fit of the various models.
+
+The application of the HMM to the problem of generalizing the characteristics ofinternational event sequences is straightforward. The symbol set consists of the event codestaken from an event data set such as WEIS or CAMEO. The states of the model are unobserved,but have a close theoretical analog in the concept of crisis ``phase''. In theHMM, different phases would be distinguished by different distributions of observed CAMEOevents. A ``stable peace'' would have a preponderance of cooperative events in the CAMEO 01-10range; the escalation phase of the crisis would be characterized by events in the 11-15 range(accusations, protests, denials, and threats), and a phase of active hostilities would show eventsin the 18-22 range. The length of time that a crisis spends in a particular phase would beproportional to the magnitude of the recurrence probability $a_{ii}$.
+% Check those CAMEO ranges
+
+The HMM has several advantages over alternative models for sequence comparison. First, if$N<<M$, the structure of the model is relatively simple. For example a left-right model with Nstates and M symbols has $2(N-1) + N*M$ parameters compared to the $M(M+2)$ parameters of aLevenshtein metric. HMMs can be estimated very quickly, in contrast to neural networks andgenetic algorithms. While the resulting matrices are only a local solution---there is no guaranteethat a matrix computed from a different random starting point might be quite different---localmaximization is also true of most other techniques for analyzing sequences, and the computationalefficiency of the Baum-Welch algorithm allows estimates to be made from a number of differentstarting points to increase the likelihood of finding a global maximum. The HMM model, beingstochastic rather than deterministic, is specifically designed to deal with noisy output and withindeterminate time (see Allan 1980); both of these are present in international event sequences.
+
+An important advantage of the HMM, particularly in terms of its possible acceptability inthe policy community, is that it can be trained by example: a model that characterizes a set ofsequences can be constructed without reference to the underlying rules used to code thosesequences. This contrasts with the interval-level aggregative methods using event data scalessuch as those proposed by Azar and Sloan (~\cite{AzarSloan75}) or Goldstein (~\cite{Goldstein92}). These scales, while ofconsiderable utility, assign weights to individual events in isolation and make no distinction, forexample, between an accusation that follows a violent event and an accusation during a meeting.5The HMM, in contrast, dispenses with the aggregation and scaling altogether---using only theoriginal, disaggregated events---and models the relationship between events by using differentsymbol observation probabilities in different states.
+
+The HMM requires no temporal aggregation. This is particularly important for early warningproblems, where critical periods in the development of a crisis may occur over a week or even aday. Finally, indeterminate time means that the HMM is relatively insensitive to the delineationof the start of a sequence: It is simple to prefix an HMM with a ``background'' state that simplygives the distribution of events generated by a particular source (e.g. Reuters/CAMEO) when nocrisis is occurring and this occurs in the models estimated below. A model can simply cycle inthis state until something important happens and the chain moves into later states characteristicof crisis behavior.
+
+
+\subsection{What else am I missing?}
+\label{subsec:missing2}
+
+Also does this organization make sense? -- this one is going to be more difficult. Another possibility, I suppose, would put the SNA and geo-spatial models in a separate section?
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Conclusion and Open Issues}
+\label{sec:conclusion}
+
+which may end up being fairly short
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\begin{acknowledgement}
+This research was supported in part by a grant from the U.S. National Science Foundation, SES-1004414, and by a Fulbright-Hays Research Fellowship for work by Schrodt at the Peace Research Institute, Oslo (\url{http://www.prio.no}).
+\end{acknowledgement}
+
+\bibliographystyle{spmpsci.bst}
+\bibliography{../EventData,../Schrodt,CompApproach}
+
+%\input{referenc}
+\end{document}
