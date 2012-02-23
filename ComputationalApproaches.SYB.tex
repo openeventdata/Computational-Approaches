@@ -49,22 +49,23 @@ Throughout the chapter, we will generally be looking at models which focus on fo
 
 We will first provide a general overview of some of the types of data commonly used in technical forecasting models, then consider the two broad categories of model: statistical and algorithmic. {\color{blue}{[next sentences will be updated when manuscript is complete]}}Within statistical modeling, we assess the strengths and weaknesses of conventional time series approaches, event-history models, vector-autoregression, and zero-inflated models. Within computational modeling, we consider the general issue of computational pattern recognition and data mining, and then look more specifically at the issue of using event sequences for forecasting. 
 
-\subsection{The Weaknesses of Human Political Forecasting}
-\label{subsec:human}
-
-Mostly Tetlock, though there is also some interesting material in Kahnemann's recent best-seller  
-
 \subsection{The Development of Technical Political Forecasting}
 \label{subsec:TPF}
 
-Pretty much behavioral revolution, COW, early DARPA efforts, PITF, ICEWS. I've got an assortment of citations. Also we will say nice things about the Web.
+There is both a push and a pull to the current interest in technical political forecasting. As with many aspects of the Information Revolution of the past several decades, some of the interest in driven purely by technology and the fact that have the data, computational power and readily accessible software to do things that we couldn't do before. The impact of intellectual curiosity and a technical itch to scratch is a factor.
 
-% Always give a unique label
-% and use \ref{<label>} for cross-references
-% and \cite{<label>} for bibliographic references
-% use \sectionmark{}
-% to alter or adjust the section heading in the running head
+But if the technological factors were the only driver, we could satisfying that by clicking on virtual cows and broadcasting our prowess on Facebook (\url{http://www.wired.com/magazine/2011/12/ff\_cowclicker/all/1}. However, at the level of serious policy analysis---mess up counter-terrorism, and real people die, with no reset---the motivation is different: humans are appallingly bad at predicting human behavior. The pathbreaking studies of Philip Tetlock \cite{Tetlock05}, who assessed the performance of 284 expert political forecasters in the assessments of more than 80,000 predictions over a twenty year period, found that their accuracy was barely better than chance, and for some of the most publicly-visible forecasters, who play to a crowd anxious for dramatic predictions, actually worse than what could be achieved by a dart-throwing chimpanzee. Tetlock's results confirmed---albeit in much great detail---for the political realm similar findings in economics and psychological assessment \cite{Meehl54,Kahneman11} but were nonetheless a stunning indictment of the ``subject matter expert'' as prognosticator.  
 
+Tetlock's work was particularly timely given the climate for the development of statistical and computational models of political violence. The earliest systematic studies of political violence---largely interstate war---using modern statistical methods and standards for data collection date from the middle of the twentieth century, in the work of British meteorologist Lewis Richardson \cite{RichardsonSDQ60}. This approach gained considerable momentum in the 1960s with the ``behavioral revolution'' in political science, which used the emerging technologies of social science statistics, digital computing, and machine-readable data to begin the systematic assessment of various theoretical propositions about political violence (and, for the most part, finding the proposed patterns were far less generalizable than their advocates believes, the results on the ``democratic peace'' {\color{blue}{[someone have a handy citation or two here?]}}being the notable exception. This period saw the initial development of many of the large-scale databases relevant to the study of political violence, including the Correlates of War 
+ \url{http://www.correlatesofwar.org/} on international and civil war, Polity (\url{http://www.systemicpeace.org/polity/polity4.htm}) on state characteristics, and early event data sets \cite{BurgLawt72,Azar80, McClelland76,Leng87} on political interactions in general. These data sets collected specifically for the study of political behavior were supplemented by readily-available global data on structural characteristics of states provided by organizations such as the United Nations, International Monetary Fund and World Bank.
+
+The U.S. Department of Defense Advanced Research Projects Agency (ARPA) funded a series of projects for the development of statistical forecasting in the 1970s \cite{AndrHopp84,DalAnd80,HoppAndrFree84}, and parallel efforts, using both statistical and computational (``artificial intelligence'') methods continued in the political science community under National Science Foundation funding \cite{ChoucriRobinson79,Hudson91,SylvChan84,GurrLich86}. However, these early efforts were not particularly successful in the production of robust, timely and accurate forecasts---in retrospect, neither the data nor methods available at the time were sufficient for the task. By the 1980s U.S. government efforts had largely ended, though the basic research in the academic community continued, as did some efforts by international non-governmental organizations \cite{HarffGurr98,DaviesGurr98,GurrHarf94,RupeKuro92}.
+
+The U.S. government re-engaged with the development of technical political forecasting in the mid-1990s, motivated in part by a recognition of the considerable progress in the development of methods and data since the earlier efforts, and by dramatic intelligence failures by human analysts on such issues as the end of the Cold War \cite{Gadd92a,Gadd92b}, state failure in Somalia and the former Yugoslavia, and the Rwandan genocide. The most conspicuous effort was the U.S. multi-agency State Failures Project \cite{EstyGoldGurr95,EstyGoldGurr98}, later renamed the Political Instability Task Force (PITF) \cite{PITF10}, a long-term collaboration between government analysts, contractors, and academic researchers. After some initial missteps involving models which were overly complex, PITF developed models that predicted various forms of political instability with 70\% to 80\% accuracy with a two-year time horizon and global coverage. In the mid-2000s, DARPA returned to the issue with the Integrated Conflict Early Warning System (ICEWS) \cite{OBrien10} {\color{blue}{[also cite O'Brien's article in this volume]}}, which achieved similar levels of accuracy.
+
+As a consequence of these various efforts,  technical forecasting of political violence is now quite well developed and the subjects of numerous efforts in both North America and Europe \cite{Buhaug2006, BesleyPersson2009, WardGreenhillBakke2010, WeidmannToft2010, BrandtFreemanSchrodt2011, HegreOstbyRaleigh2009, HillBagozziMooreMukherjee2011,Obrien2010, HolmesPineresCurtina2007}. While most of these are looking at violence and irregular political activity such as coups, a quantitative literature has also emerged on the topic of terrorism \cite{DrakosGofas2006jcr, Hultman2007, Li2005,PiazWals09,Piazza08,Piazza11} {\color{blue}{[need to add some Sandler here...do you folks have access to a site where you can get these in BibTeX form? Or is there a good review article somewhere?]}}
+
+{\color{blue}{[Need another sentence or two to finish this off, but probably it is about done]}}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -87,13 +88,6 @@ The challenge will be extending the success of automated coding to projects whic
 One would then define composite events such as ``civil war'' by using patterns of the atomic events. %cite NKSS
 This would also make the differences between definitions used by various project unambiguous (or at least comparable) and  allow the composite events to be easily constructed out of existing data sets rather than starting every new project from the beginning. MID, in moving from the original episodic definitions to coding composite incidents as well, would be an example of this approach, albeit with human coding.
 
-\subsubsection{Sample Subsubsection for Testing the \texttt{BibTeX} Citations}
-\label{subsubsec:bibtex}
-
-This can be ignored for the time being and is still generating somewhat---or at one point, exceedingly---ugly citations.
-
-Political event data have long been used in the quantitative study of international politics, dating back to the early efforts of Edward Azar's COPDAB ~\cite{Azar80} and Charles McClelland's WEIS ~\cite{McClelland76} as well as a variety of more specialized efforts such as Leng's BCOW \cite{Leng87}. By the late 1980s, the NSF-funded \textit{Data Development in International Relations} project ~\cite{MMZ93} had identified event data as the second most common form of data---behind the various Correlates of War data sets---used in quantitative studies. The 1990s saw the development of two practical automated event data coding systems, the NSF-funded KEDS ~\cite{GSFW94, SchrodtGerner94} and the proprietary VRA-Reader (\url{http://vranet.com}; ~\cite{KingLowe04} and in the 2000s, the development of two new political event coding ontologies---CAMEO ~\cite{GSY09} and IDEA ~\cite{BBOJT03}---designed for implementation in automated coding systems.
-
 
 \subsection{Text, Social Media and Other Unstructured Data Sources}
 \label{subsec:socialmedia}
@@ -105,6 +99,8 @@ Political event data have long been used in the quantitative study of internatio
 
 \section{Statistical Approaches}
 \label{sec:logit}
+
+Much of the work with event data has focused on forecasting political conflict. Within the early warning literature, three primary methodological approaches exist: time series \cite{PevehouseGoldstein99, Shellman04SS, Shellman06, HarffGurr98}, vector auto regression (VAR) \cite{Goldstein92,Freeman89}, and hidden Markov models (HMM) \cite{Bond04, Shearer06, Schrodt00, Schrodt06PFP}. This paper---like that of the HMM work---will look at  event data as patterns since patterns are one of the most common modes of political analysis found in qualitative studies. In particular, various forms of qualitative ``case-based reasoning''---see for example \cite{May73, NeustadtMay86, Khong92}---essentially match patterns of events from past cases to the events observed in a current situation (with some substitutions for equivalent events), and then use the best historical fit to predict the likely outcome of the current situation.\footnote{See \cite[chapter 6] {Schrodt04} for a much more extended discussion of this approach}   Instead of analyzing the effects of specific events in a vacuum (like \cite{Harff98} and her focus on specific ``triggers'' and ``accelerators'') a pattern-recognition approach allows discrete events or event counts to determine the likelihood of future events. This general concept can be implemented in a variety of different ways---see for example the various ``artificial intelligence'' approaches in \cite{Hudson91, Schrodt90, BakemanQuera95, Hudson08} and the HMM studies cited earlier. 
 
 \subsection{Cross-sectional Regression and Logit}
 \label{sec:logit}
@@ -175,6 +171,36 @@ Neural networks, SVM, linear discriminant analysis, the usual suspects
 
 Again, the usual suspects, and also note that some of these overlap with the statistical approaches. Put in a word for some of the topic-clustering methods Burt is using?
 
+Latent Dirichlet allocation (LDA) models were introduced by \cite{BNJ03} and briefly described in the abstract of that article as:
+
+\begin{quote}
+LDA is a three-level hierarchical Bayesian model, in which each item of a collection is modeled as a finite mixture over an underlying set of topics. Each topic is, in turn, modeled as an infinite mixture over an underlying set of topic probabilities.
+\end{quote}
+
+In the typical LDA application to document classification, each document is assumed to be a mixture of multiple, overlapping \textit{latent topics}, each with a characteristic set of words. Classification is done by associating words in a document with the topics most likely to have generated the observed distribution of words in the document. The purpose of LDA is to determine those latent topics from patterns in the data. 
+
+The latent topics are useful for two purposes. First, to the extent that the words associated with a topic suggest a plausible category, they are intrinsically interesting in determining the issues found in the set of documents. For example, one of the sample data sets in the $R$ \texttt{lda} package \cite{Chang10} determines the set of issues discussed in a series of political blogs. Second, the topics can be used with other classification algorithms such as logistic regression, support vector machines or discriminant analysis to classify new documents. The full mathematical details of LDA estimation can be obtained from that paper or the other usual suspects on the web and will not be repeated here, as I am simply using this off-the-shelf (or off-the-\texttt{CRAN}, as the case may be.)
+
+Despite the surface differences between the domains, the application of this technique to the problem of political forecasting is straightforward: It is reasonable to assume that the stream of events observed between a set of actors is a mixture of a variety political strategies and standard operating procedures (for example escalation of repressive measures against a minority group while simultaneously making efforts to co-opt the elites of that group). This is essentially identical to the process by which a collection of words in a document is a composite of the various themes and topics, the problem LDA is designed to solve. As before, the objective of LDA will be to find those latent strategies that are mixed to produce the observed event stream.  These latent factors can then be used to convert full event stream to a much simpler set of measures.
+
+The importance of latent dimensions in event data---rather than specifying the dimensions \textit{a priori} based on some theory---is due to issues of measurement. As I noted in Schrodt (1994), if one is using event data in forecasting models---the objective of ICEWS---coding error is only one potential source of error that lies between ``events on the ground'' and the predictions of the forecasting model. These include
+
+\begin{itemize}
+\item News reports are only a tiny, tiny fraction of all of the events that occur daily, and are non-randomly selected by reporters and editors;
+
+\item Event ontologies such as WEIS, CAMEO and IDEA are very generic and bin together events that may not always belong together in all contexts;
+
+\item Forecasting models always contain specification error and cannot consider everything; for example few if any  political forecasting models contain a full economic forecasting component;
+
+\item Political systems have a degree of intrinsic randomness due to their inherent complexity, chaotic factors even in the deterministic components of those systems, the impact of effectively random natural phenomena such as earthquakes and weather, and finally the effects of free will, so the error intrinsic to a forecasting model will never reduce to zero.
+
+\end{itemize}
+
+Because of these sources of error, the ability to determine latent dimension in event data is important in the overall scientific exercise of improving instrumentation for conflict forecasting. The latent dimensions of event data will never be not self-evident (or purely derivable from theory) because of the measurement factors noted above. We do not have a ``god's-eye view'' of political interactions---we have the highly (and non-randomly) selected view provided by the international media. Consequently determining methods that will allow these to be more effectively used to move the field forward more generally.
+
+The LDA approach is similar in many ways to the hidden Markov approach. In both models, the observed event stream is produced by a set of events randomly drawn from a mixture of distributions. In an HMM, however, these distributions are determined by the state of a Markov chain, whose transition probabilities must be estimated but which consequently also explicitly provides a formal sequence. An LDA, in contrast, allows any combination of mixtures, without explicit sequencing except to the extent---as in this paper---that sequencing information is provided by the events in the model. The HMMs uses in political forecasting also tend to have a relatively small (typically about 5) set of states, and hence distributions, whereas LDA's typically use a larger number. 
+
+
 \subsection{Social network analysis model}
 \label{sec:timeseries}
 
@@ -195,23 +221,81 @@ Snag the D'Orozio-Yonamine lit review?
 
 {\color{blue}{[this will be considerably shortened to adjust for the content of the Bond HMM paper]}}
 
-Hidden Markov models (HMM) are a recently developed technique that is now widely used inthe classification of noisy sequences into a set of discrete categories (or, equivalently, computingthe probability that a given sequence was generated by a known model), most commonly in speech recognition and comparing protein sequences.
+Hidden Markov models (HMM) are a recently developed technique that is now widely used in
+the classification of noisy sequences into a set of discrete categories (or, equivalently, computing
+the probability that a given sequence was generated by a known model), most commonly in speech recognition and comparing protein sequences.
 
-An HMM is a variation on the well-known Markov chain model, one of the most widelystudied stochastic models of discrete events (Bartholomew 1975). Like a conventional Markovchain, a HMM consists of a set of discrete states and a matrix $A = a_{ij}$ of transitionprobabilities for going between those states. In addition, however, every state has a vector ofobserved symbol probabilities, $B = {b_j(k)}$ that corresponds to the probability that the system
-will produce a symbol of type k when it is in state j. The states of the HMM cannot be directlyobserved and can only be inferred from the observed symbols, hence the adjective ``hidden.''
+An HMM is a variation on the well-known Markov chain model, one of the most widely
+studied stochastic models of discrete events (Bartholomew 1975). Like a conventional Markov
+chain, a HMM consists of a set of discrete states and a matrix $A = a_{ij}$ of transition
+probabilities for going between those states. In addition, however, every state has a vector of
+observed symbol probabilities, $B = {b_j(k)}$ that corresponds to the probability that the system
+will produce a symbol of type k when it is in state j. The states of the HMM cannot be directly
+observed and can only be inferred from the observed symbols, hence the adjective ``hidden.''
 
-In empirical applications, the transition matrix and symbol probabilities of an HMM areestimated using an iterative maximum likelihood technique called the Baum-Welch algorithm.This procedure takes a set of observed sequences (for example the word "seven" as pronouncedby twenty different speakers) and findsvalues for the matrices A and B that locally maximize the probability of observing those
-sequences. The Baum-Welch algorithm is a nonlinear numerical technique and Rabiner(1989:265) notes ``the algorithm leads to a local maxima only and, in most problems of interest,the optimization surface is very complex and has many local maxima.''
-Once a set of models has been estimated, it can be used to classify an unknown sequence bycomputing the maximum probability that each of the models generated the observed sequence.This is done using an algorithm that requires on the order of $N^{2T}$ calculations, where $N$ is thenumber of states in the model and $T$ is the length of the sequence. Once the probability of thesequence matching each of the models is known, the model with the highest probability is chosenas that which best represents the sequence. Matching a sequence of symbols such as those foundin daily data on a six-month crisis coded with using the 22-category World Events InteractionSurvey scheme (WEIS; ~\cite{McClelland76}), generates probabilities on the order of $10^{T+1}$---whichis extremely small, even if the sequence was in fact generated by one of the models---but the onlyimportant comparison is the relative fit of the various models.
+In empirical applications, the transition matrix and symbol probabilities of an HMM are
+estimated using an iterative maximum likelihood technique called the Baum-Welch algorithm.
+This procedure takes a set of observed sequences (for example the word "seven" as pronounced
+by twenty different speakers) and finds
+values for the matrices A and B that locally maximize the probability of observing those
+sequences. The Baum-Welch algorithm is a nonlinear numerical technique and Rabiner
+(1989:265) notes ``the algorithm leads to a local maxima only and, in most problems of interest,
+the optimization surface is very complex and has many local maxima.''
 
-The application of the HMM to the problem of generalizing the characteristics ofinternational event sequences is straightforward. The symbol set consists of the event codestaken from an event data set such as WEIS or CAMEO. The states of the model are unobserved,but have a close theoretical analog in the concept of crisis ``phase''. In theHMM, different phases would be distinguished by different distributions of observed CAMEOevents. A ``stable peace'' would have a preponderance of cooperative events in the CAMEO 01-10range; the escalation phase of the crisis would be characterized by events in the 11-15 range(accusations, protests, denials, and threats), and a phase of active hostilities would show eventsin the 18-22 range. The length of time that a crisis spends in a particular phase would beproportional to the magnitude of the recurrence probability $a_{ii}$.
+Once a set of models has been estimated, it can be used to classify an unknown sequence by
+computing the maximum probability that each of the models generated the observed sequence.
+This is done using an algorithm that requires on the order of $N^{2T}$ calculations, where $N$ is the
+number of states in the model and $T$ is the length of the sequence. Once the probability of the
+sequence matching each of the models is known, the model with the highest probability is chosen
+as that which best represents the sequence. Matching a sequence of symbols such as those found
+in daily data on a six-month crisis coded with using the 22-category World Events Interaction
+Survey scheme (WEIS; ~\cite{McClelland76}), generates probabilities on the order of $10^{T+1}$---which
+is extremely small, even if the sequence was in fact generated by one of the models---but the only
+important comparison is the relative fit of the various models.
+
+The application of the HMM to the problem of generalizing the characteristics of
+international event sequences is straightforward. The symbol set consists of the event codes
+taken from an event data set such as WEIS or CAMEO. The states of the model are unobserved,
+but have a close theoretical analog in the concept of crisis ``phase''. In the
+HMM, different phases would be distinguished by different distributions of observed CAMEO
+events. A ``stable peace'' would have a preponderance of cooperative events in the CAMEO 01-10
+range; the escalation phase of the crisis would be characterized by events in the 11-15 range
+(accusations, protests, denials, and threats), and a phase of active hostilities would show events
+in the 18-22 range. The length of time that a crisis spends in a particular phase would be
+proportional to the magnitude of the recurrence probability $a_{ii}$.
 % Check those CAMEO ranges
 
-The HMM has several advantages over alternative models for sequence comparison. First, if$N<<M$, the structure of the model is relatively simple. For example a left-right model with Nstates and M symbols has $2(N-1) + N*M$ parameters compared to the $M(M+2)$ parameters of aLevenshtein metric. HMMs can be estimated very quickly, in contrast to neural networks andgenetic algorithms. While the resulting matrices are only a local solution---there is no guaranteethat a matrix computed from a different random starting point might be quite different---localmaximization is also true of most other techniques for analyzing sequences, and the computationalefficiency of the Baum-Welch algorithm allows estimates to be made from a number of differentstarting points to increase the likelihood of finding a global maximum. The HMM model, beingstochastic rather than deterministic, is specifically designed to deal with noisy output and withindeterminate time (see Allan 1980); both of these are present in international event sequences.
+The HMM has several advantages over alternative models for sequence comparison. First, if
+$N<<M$, the structure of the model is relatively simple. For example a left-right model with N
+states and M symbols has $2(N-1) + N*M$ parameters compared to the $M(M+2)$ parameters of a
+Levenshtein metric. HMMs can be estimated very quickly, in contrast to neural networks and
+genetic algorithms. While the resulting matrices are only a local solution---there is no guarantee
+that a matrix computed from a different random starting point might be quite different---local
+maximization is also true of most other techniques for analyzing sequences, and the computational
+efficiency of the Baum-Welch algorithm allows estimates to be made from a number of different
+starting points to increase the likelihood of finding a global maximum. The HMM model, being
+stochastic rather than deterministic, is specifically designed to deal with noisy output and with
+indeterminate time (see Allan 1980); both of these are present in international event sequences.
 
-An important advantage of the HMM, particularly in terms of its possible acceptability inthe policy community, is that it can be trained by example: a model that characterizes a set ofsequences can be constructed without reference to the underlying rules used to code thosesequences. This contrasts with the interval-level aggregative methods using event data scalessuch as those proposed by Azar and Sloan (~\cite{AzarSloan75}) or Goldstein (~\cite{Goldstein92}). These scales, while ofconsiderable utility, assign weights to individual events in isolation and make no distinction, forexample, between an accusation that follows a violent event and an accusation during a meeting.5The HMM, in contrast, dispenses with the aggregation and scaling altogether---using only theoriginal, disaggregated events---and models the relationship between events by using differentsymbol observation probabilities in different states.
+An important advantage of the HMM, particularly in terms of its possible acceptability in
+the policy community, is that it can be trained by example: a model that characterizes a set of
+sequences can be constructed without reference to the underlying rules used to code those
+sequences. This contrasts with the interval-level aggregative methods using event data scales
+such as those proposed by Azar and Sloan (~\cite{AzarSloan75}) or Goldstein (~\cite{Goldstein92}). These scales, while of
+considerable utility, assign weights to individual events in isolation and make no distinction, for
+example, between an accusation that follows a violent event and an accusation during a meeting.5
+The HMM, in contrast, dispenses with the aggregation and scaling altogether---using only the
+original, disaggregated events---and models the relationship between events by using different
+symbol observation probabilities in different states.
 
-The HMM requires no temporal aggregation. This is particularly important for early warningproblems, where critical periods in the development of a crisis may occur over a week or even aday. Finally, indeterminate time means that the HMM is relatively insensitive to the delineationof the start of a sequence: It is simple to prefix an HMM with a ``background'' state that simplygives the distribution of events generated by a particular source (e.g. Reuters/CAMEO) when nocrisis is occurring and this occurs in the models estimated below. A model can simply cycle inthis state until something important happens and the chain moves into later states characteristicof crisis behavior.
+The HMM requires no temporal aggregation. This is particularly important for early warning
+problems, where critical periods in the development of a crisis may occur over a week or even a
+day. Finally, indeterminate time means that the HMM is relatively insensitive to the delineation
+of the start of a sequence: It is simple to prefix an HMM with a ``background'' state that simply
+gives the distribution of events generated by a particular source (e.g. Reuters/CAMEO) when no
+crisis is occurring and this occurs in the models estimated below. A model can simply cycle in
+this state until something important happens and the chain moves into later states characteristic
+of crisis behavior.
 
 
 \subsection{What else am I missing?}
@@ -219,14 +303,20 @@ The HMM requires no temporal aggregation. This is particularly important for ear
 
 Also does this organization make sense? -- this one is going to be more difficult. Another possibility, I suppose, would put the SNA and geo-spatial models in a separate section?
 
-
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\section{Conclusion and Open Issues}
+\section{Conclusion}
 \label{sec:conclusion}
 
-which may end up being fairly short
+In 1954, the psychologist Paul Meehl \cite{Meehl54} published a path-breaking analysis of the relative accuracy of human clinical assessments versus simple statistical models models for a variety of prediction problems, such as future school performance and criminal recidivism. Despite using substantially less information, the statistical models either outperformed, or performed as well as, the human assessments in most situations. Meehl's work has been replicated and extended to numerous other domains in the subsequent six decades and the results are always the same: the statistical models win. Meehl, quoted in Kahneman \cite[chpt. 21]{Kahneman11}, reflecting on thirty years of studies, said, ``There is no controversy in the social sciences which shows such a large body of qualitatively diverse studies coming out in the same direction as this one.''
+
+This has not, of course, removed the human analysts from trying---and most certainly, \textit{claiming}---to provide superior performance, for a wide variety of reasons---dare we call these \textit{pathologies}?---that Kahneman \cite[Part 3] {Kahneman11} discusses in great detail in the section of his book titled, appropriately, ``Overconfidence.'' It is not only that simple statistical models are superior to human punditry, but as Tetlock \cite{Tetlock05} established, the more confident and well-known the human analyst, the \textit{less} accurate his or her prediction, and in most fields, the past performance of analysts---notoriously, the stock-pickers of mutual funds---provides essentially no guide to their future performance.
+
+At present, the likelihood that human punditry, particularly the opinionated self-assurance so valued in the popular media, will be completely replaced by the unblinking assessments of computer programs, whether on 24-hour news channels or in the brainstorming sessions in windowless conference rooms. Humans are social animals with exquisite skills at persuasion and manipulation; computer programs simply are far more likely to provide the correct answer in an inexpensive, consistent and transparent manner. Boring...
+
+Yet with the vast increase in the availability of data, computational power, and the resulting refinement of techniques, there is some change in the works. While the covers of investment magazines show the latest well-coffed guru who by blind luck managed to have an unusually good year, in fact algorithmic trading now accounts for all but a small fraction of the activity on financial exchanges. Weather forecasts are presented by jocular and attractive individuals with the apparent intelligence of bullfrogs, but the forecasts themselves are the result of numerical models. Even that last bastion of intuitive manliness, the assessment of athletes, can be trumped by statistical models, as documented in the surprisingly popular book and movie \textit{Moneyball} \cite{Lewis11}.\footnote{And when \textit{this} book is made into a movie, we want Brad Pitt to play Sean O'Brien...}
+
+Similar progress in the adoption of models forecasting political violence, particularly terrorism, is likely to be much slower. As we have stressed repeatedly, one of the major challenges of this research is that political violence is a rare event, and acts of terrorism in otherwise peaceful situations---the "bolt out of the blue" of Oklahoma City, 9/11/2001, Madrid 2004 and Ut\o ya Island, Norway in 2011---are among the rarest. Consequently even if the statistical models are more accurate---and there is every reason to believe that they will be---establishing this will take far longer than is required in a field where new predictions can be assessed by the day, or even by the minute. In addition, a long series of psychological studies have shown that human risk assessment is particularly inaccurate---and hence its validity overestimated---in low probability, high risk situations, precisely the domain of counter-terrorism. Getting the technical assessments in the door, to say nothing of getting them used properly, will not be an easy task, and the initial applications will almost certainly be in domains where the events of interest are more frequent, as we are already seeing with the success of the Political Instability Task Force. As this chapter has illustrated, the challenges are well understood, a plethora of sophisticated techniques await experimentation, and the appropriate data is readily available, all that is needed is the will and skill to apply these.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -236,7 +326,7 @@ This research was supported in part by a grant from the U.S. National Science Fo
 \end{acknowledgement}
 
 \bibliographystyle{spmpsci.bst}
-\bibliography{../EventData,../Schrodt,CompApproach}
+\bibliography{EventData,Schrodt,CompApproach,terrorism}
 
 %\input{referenc}
 \end{document}
